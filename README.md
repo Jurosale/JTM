@@ -8,7 +8,7 @@ Code Samples - contains some of my best/most complex work.
 Other Code - contains the rest of my contributions for this project.
 
 Team Members:
-Eric Guo
-Niken Hertanto
-Inkan Hertanto
+Eric Guo,
+Niken Hertanto,
+Inkan Hertanto,
 Patrick Kagel
