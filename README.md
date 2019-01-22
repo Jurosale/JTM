@@ -1,4 +1,5 @@
-Code Samples - contains my best/most complicated work.
-Other Code - contains the rest of my contributions for this project.
+Note: Journey Through Memories is available now on Steam.
+https://store.steampowered.com/app/948340/Journey_Through_Memories/
 
-All code is self written and original unless otherwise stated.
+Code Samples - contains some of my most efficient/complex work.
+Other Code - contains the rest of my contributions for this project.
