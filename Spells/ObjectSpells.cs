@@ -11,6 +11,7 @@ using UnityEngine;
 class ObjectSpells : MonoBehaviour
 {
 
+    //wind animation objects; one blows to the left, the other right
     private GameObject WindParticlesL, WindParticlesR;
 
     private float windSpeed;
@@ -26,8 +27,6 @@ class ObjectSpells : MonoBehaviour
     //timer
     private float timer;
 
-    // Keeps track of initial position and dimensions for revival purposes
-    // Also assigns various game objects
     void Start()
     {
 
