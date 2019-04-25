@@ -8,34 +8,37 @@ using UnityEngine;
  *      Current Spells: Wind
 *********************************************** */
 
-public class ObjectSpells : MonoBehaviour {
+class ObjectSpells : MonoBehaviour
+{
 
-    public GameObject WindParticlesL, WindParticlesR;
-    //If true then this object is affected by that spell otherwise it isn't
-    public bool canWind;
+    private GameObject WindParticlesL, WindParticlesR;
 
-    //these values are used to individualize the objects for specific use
-    public float windSpeed;
+    private float windSpeed;
 
-    private float posX, posY, posZ, dimX, dimY, dimZ;
+    //determines whether or not spell animations should be currently playing 
     private bool animFlag;
 
+    //grants access to speech recognition software, avatar and UI
     SpeechRecognition01 speech;
     GameObject vivi, wind1, wind2;
     UIHistory uiH;
 
     //timer
-    public float timer;
+    private float timer;
 
     // Keeps track of initial position and dimensions for revival purposes
-    void Start () {
-        posX = transform.localPosition.x;
-        posY = transform.localPosition.y;
-        posZ = transform.localPosition.z;
-        dimX = transform.localScale.x;
-        dimY = transform.localScale.y;
-        dimZ = transform.localScale.z;
+    // Also assigns various game objects
+    void Start()
+    {
+
+        //modify these values if you want to change wind speed and
+        //timer's initial starting value for delayed effect purposes
+        windSpeed = 50;
+        timer = 0;
+
         animFlag = false;
+
+        //assigns game object values for various use
         speech = GameObject.Find("SpeechRecognition").GetComponent<SpeechRecognition01>();
         vivi = GameObject.Find("Witch character");
         wind1 = GameObject.Find("WindAnim");
@@ -44,37 +47,47 @@ public class ObjectSpells : MonoBehaviour {
         WindParticlesR = GameObject.Find("WindParticlesRight");
         uiH = GameObject.Find("UIH1").GetComponent<UIHistory>();
     }
-	
-	// When Vivi gets close enough to object...
-	void OnTriggerStay2D (Collider2D other) {
-        if (other.tag == "Player")
-        {
-            //...If it can be affected by wind and the player casted wind, will move object
-            if (canWind && (speech.word == "wind"|| uiH.isWind))
-            {
-                if (timer > .5f) { uiH.isWind = false; }
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), 
-                    Time.deltaTime * (windSpeed * vivi.GetComponent<Movement>().facingRight) * speech.pitch);
 
-            }
+    // When Vivi gets close enough to object 
+    // And the player casted wind, 
+    // It will move object
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player" && (speech.word == "wind" || uiH.isWind))
+        {
+            //turns off wind spell and animation 1/2 a second after activation
+            if (timer > .5f) { uiH.isWind = false; }
+
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z),
+                Time.deltaTime * (windSpeed * vivi.GetComponent<Movement>().facingRight) * speech.pitch);
         }
     }
 
-    void FixedUpdate() {
-        if((speech.word == "wind" || uiH.isWind))
+    //after user casts wind, activates the wind animation
+    void FixedUpdate()
+    {
+        if ((speech.word == "wind" || uiH.isWind))
         {
+            //turns off wind spell and animation 1/2 a second after activation
             if (timer > .5f) { uiH.isWind = false; }
-            //Plays animation either left or right depending on what direction she is facing
-            if (vivi.GetComponent<Movement>().facingRight >= 0) {
-                wind1.transform.position = new Vector3(vivi.transform.position.x + (4f * vivi.GetComponent<Movement>().facingRight),
+
+            //Plays wind animation either left or right depending on what direction player is facing
+            if (vivi.GetComponent<Movement>().facingRight >= 0)
+            {
+                wind1.transform.position = new Vector3(vivi.transform.position.x +
+                    (4f * vivi.GetComponent<Movement>().facingRight),
                     vivi.transform.position.y, vivi.transform.position.z);
+
                 WindParticlesR.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 WindParticlesR.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
             }
             else
             {
-                wind2.transform.position = new Vector3(vivi.transform.position.x + (4f * vivi.GetComponent<Movement>().facingRight),
+                wind2.transform.position = new Vector3(vivi.transform.position.x +
+                    (4f * vivi.GetComponent<Movement>().facingRight),
                     vivi.transform.position.y, vivi.transform.position.z);
+
                 WindParticlesL.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 WindParticlesL.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
             }
@@ -85,15 +98,18 @@ public class ObjectSpells : MonoBehaviour {
         //Times how long the game object will appear
         if (animFlag) { timer += Time.deltaTime; }
 
-        //once timer passes than move the object out of the way
+        //once timer passes specified time, moves the object out of the way
         if (timer > 2.5f)
         {
             //Reset position and timer
-            wind1.transform.position = new Vector3(transform.position.x + 500.0f, transform.position.y + 500.0f, transform.position.z + 500.0f);
-            wind2.transform.position = new Vector3(transform.position.x + 500.0f, transform.position.y + 500.0f, transform.position.z + 500.0f);
+            wind1.transform.position = new Vector3(transform.position.x + 500.0f,
+                transform.position.y + 500.0f, transform.position.z + 500.0f);
+
+            wind2.transform.position = new Vector3(transform.position.x + 500.0f,
+                transform.position.y + 500.0f, transform.position.z + 500.0f);
+
             timer = 0;
-            animFlag = false;    
+            animFlag = false;
         }
     }
-
 }
