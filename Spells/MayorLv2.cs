@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MayorLv2 : MonoBehaviour {
+class MayorLv2 : MonoBehaviour
+{
 
-    private int currTasks;
-    private float complete, minReq;
+    int currTasks;
+    float complete, minReq;
     GameObject vivi, wall;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         complete = 4;
         minReq = Mathf.Ceil(complete * .7f);
         vivi = GameObject.Find("Witch character");
@@ -17,29 +18,34 @@ public class MayorLv2 : MonoBehaviour {
         vivi.GetComponent<AvatarSpells>().tasks = 0;
         currTasks = -1;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update()
+    {
         //mayor will say one of the following things...
         if (currTasks != vivi.GetComponent<AvatarSpells>().tasks)
         {
             currTasks = vivi.GetComponent<AvatarSpells>().tasks;
-            
+
             //if you've helped everyone...
-            if (vivi.GetComponent<AvatarSpells>().tasks / complete == 1) {
+            if (vivi.GetComponent<AvatarSpells>().tasks / complete == 1)
+            {
                 GetComponent<NPCSpells>().spiritMessage[0] = "You've helped everyone here. Thank you kind witch. You may pass.";
                 wall.SetActive(false);
             }
 
             //if you've helped enough people (70%)...
-            else if (vivi.GetComponent<AvatarSpells>().tasks / complete >= .7f) {
-                GetComponent<NPCSpells>().spiritMessage[0] = "You've helped a lot but there are still lost souls who need you. You may pass though. I can't force you to help those souls.";
+            else if (vivi.GetComponent<AvatarSpells>().tasks / complete >= .7f)
+            {
+                GetComponent<NPCSpells>().spiritMessage[0] = "You've helped a lot but there are still lost souls who need you. " +
+                    "You may pass though. I can't force you to help those souls.";
                 wall.SetActive(false);
             }
 
             //if you haven't helped enough people...
-            else {
-                GetComponent<NPCSpells>().spiritMessage[0] = "There are plenty of lost souls that need you right now. Try helping at least " + (minReq - vivi.GetComponent<AvatarSpells>().tasks) + " red spirits to proceed.";
+            else
+            {
+                GetComponent<NPCSpells>().spiritMessage[0] = "There are plenty of lost souls that need you right now. Try helping at least " + 
+                    (minReq - vivi.GetComponent<AvatarSpells>().tasks) + " red spirits to proceed.";
                 wall.SetActive(true);
             }
         }
