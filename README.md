@@ -18,9 +18,9 @@ https://github.com/Jurosale/JTM/blob/master/Other%20Scripts/SpellBook.cs
 
 Team Members:
 Eric Guo,
-Niken Hertanto,
 Inkan Hertanto,
-Patrick Kagel
+Patrick Kagel,
+Juan Rosales
 
 Available now on Steam:
 https://store.steampowered.com/app/948340/Journey_Through_Memories/
