@@ -1,6 +1,6 @@
 JTM is a 2D Puzzle game that utilizes speech recognition. Set in the aftermath of a devastating war, discover new spells, cast powerful magic, and uncover the untold past as you journey through the memories of the fallen victims of war.
 
-Links to some of my most complex and/or cleanest work. All work is Covy's and 2B's  unless otherwise stated at the top of file:
+
 
 https://github.com/Jurosale/JTM/blob/master/Other%20Scripts/MainCamera.cs
 https://github.com/Jurosale/JTM/blob/master/Spells/MayorLv2.cs
@@ -14,7 +14,6 @@ https://github.com/Jurosale/JTM/blob/master/Spells/NPCSpells.cs
 
 Team Members:
 Eric Guo,
-Inkan Hertanto,
 Patrick Kagel,
 Covy Rosales,
 2B Hertanto
