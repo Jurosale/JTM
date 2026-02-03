@@ -14,7 +14,6 @@ https://github.com/Jurosale/JTM/blob/master/Spells/NPCSpells.cs
 
 Team Members:
 Eric Guo,
-Inkan Hertanto,
 Patrick Kagel,
 Covy Rosales,
 2B Hertanto
