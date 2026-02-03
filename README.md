@@ -11,8 +11,6 @@ https://github.com/Jurosale/JTM/blob/master/Spells/SummonSpells.cs
 https://github.com/Jurosale/JTM/blob/master/Spirits/Spirit_Interaction.cs
 https://github.com/Jurosale/JTM/blob/master/Other%20Scripts/Scene_Manager.cs
 https://github.com/Jurosale/JTM/blob/master/Spells/NPCSpells.cs
-https://github.com/Jurosale/JTM/blob/master/Other%20Scripts/SpeechRecognition01.cs
-https://github.com/Jurosale/JTM/blob/master/Other%20Scripts/SpellBook.cs
 
 Team Members:
 Eric Guo,
