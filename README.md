@@ -1,4 +1,4 @@
-Journey Through Memories is a 2D Puzzle game that utilizes speech recognition. Set in the aftermath of a devastating war, discover new spells, cast powerful magic, and uncover the untold past as you journey through the memories of the fallen victims of war.
+Covy's Game is a 2D Puzzle game that utilizes speech recognition. Set in the aftermath of a devastating war, discover new spells, cast powerful magic, and uncover the untold past as you journey through the memories of the fallen victims of war.
 
 Links to some of my most complex and/or cleanest work. All work is all my own unless otherwise stated at the top of file:
 
@@ -20,7 +20,9 @@ Team Members:
 Eric Guo,
 Niken Hertanto,
 Inkan Hertanto,
-Patrick Kagel
+Patrick Kagel,
+Covy Hertanto,
+2B Rosales
 
 Available now on Steam:
 https://store.steampowered.com/app/948340/Journey_Through_Memories/
